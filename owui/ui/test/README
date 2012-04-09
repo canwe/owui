@@ -1,0 +1,5 @@
+1. Use the apache virtual host configuration from file test-apache
+2. Run test
+3. open http://myfcgi.mynote
+
+You can replace "myfcgi.mynote" to own host name

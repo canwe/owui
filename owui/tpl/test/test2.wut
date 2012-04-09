@@ -1,0 +1,9 @@
+txt ${var1} 
+<: my.samples.component1 option10="size" /:>
+<:   mytag1  option1="123"   option2="color" :> atz
+<:mytag2:>
+ququ
+bubu ${p1.p2.p3.var}
+<:/mytag2:>
+ zzzz <:/mytag1:> 1bbbbb0
+1ggggggg0

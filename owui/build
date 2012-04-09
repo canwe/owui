@@ -1,0 +1,16 @@
+#!/bin/sh
+cd base
+jam
+
+cd ..
+cd fcgi
+jam
+cd ..
+
+cd tpl
+jam
+cd ..
+
+cd ui
+jam
+cd ..

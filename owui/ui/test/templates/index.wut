@@ -1,0 +1,26 @@
+This is a test page.<br>
+${greeting} <br>
+Time from page controller: ${now} <br>
+We try to use a widget: 
+
+<: myapp/clockWidget color="${clockColor}" :><br>${greeting}<:/myapp/clockWidget:>  
+
+<p> Your last visit is ${lastVisit} </p>
+
+<br>
+How it is?<br>
+
+<br><br><br><br><br>
+
+
+
+
+
+<form action="" method="post">
+<input name="name" value="${name}" />
+<input name="secondName" value="${secondName}" />
+<input type="hidden" name="buttonName" value="submitName" /> 
+<input type="submit" value="send" /> 
+</form> 
+
+

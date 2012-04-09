@@ -1,0 +1,9 @@
+include $(OWUI_ROOT)/prj_conf.jam ;
+
+OB_LIBS = owui_fcgi owui_base olibs3_base-3.1 fcgi++ fcgi ;
+OB_LIB_DIRS = $(OLIBS3_ROOT)/lib/$(OB_PROD_VARIANT) ;
+
+include $(OWUI_ROOT)/project.jam ;
+
+ob_many_simple_bin ;
+

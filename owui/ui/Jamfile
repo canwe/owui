@@ -1,0 +1,4 @@
+include $(OWUI_ROOT)/prj_conf.jam ;
+include $(OWUI_ROOT)/project.jam ;
+
+ob_one_lib owui_ui ;

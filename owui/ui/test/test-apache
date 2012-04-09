@@ -1,0 +1,34 @@
+<VirtualHost *:80>
+  ServerName myfcgi.mynote
+  ServerAlias www.myfcgi.mynote
+  ServerAdmin webmaster@localhost
+
+  FastCgiExternalServer /var/mywww/app.fcgi -host 127.0.0.1:9000
+
+  DocumentRoot /var/mywww
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  <Directory /var/mywww/>
+    Options Indexes FollowSymLinks MultiViews +ExecCGI
+    AllowOverride all
+    Order allow,deny
+    allow from all
+  </Directory>
+
+  ErrorLog /var/mywww/error.log
+
+  # Possible values include: debug, info, notice, warn, error, crit,
+  # alert, emerg.
+  LogLevel debug
+
+  CustomLog /var/mywww/access.log combined
+
+
+  RewriteEngine On
+  RewriteRule ^/(media.*)$ /$1 [QSA,L,PT]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^/(.*)$ /app.fcgi/$1 [QSA,L]
+</VirtualHost>

@@ -1,0 +1,7 @@
+dynamic PageControllerParams
+{
+  String greeting;
+  DateTime now;
+  String clockColor;
+};
+

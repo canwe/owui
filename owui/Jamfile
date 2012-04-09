@@ -1,0 +1,7 @@
+SubDir OWUI_ROOT owui ;
+
+SubInclude OWUI_ROOT owui base ;
+SubInclude OWUI_ROOT owui fcgi ;
+SubInclude OWUI_ROOT owui tpl ;
+SubInclude OWUI_ROOT owui ui ;
+

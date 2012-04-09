@@ -1,0 +1,1 @@
+<: my.samples.component1 color="${color}" /:> 

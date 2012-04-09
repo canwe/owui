@@ -1,0 +1,6 @@
+dynamic ClockWidgetParams
+{
+  String format;
+  String color;
+};
+

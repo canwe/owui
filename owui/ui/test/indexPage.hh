@@ -1,0 +1,38 @@
+#ifndef _TEST_INDEX_PAGE_HH_
+#define _TEST_INDEX_PAGE_HH_
+
+#include <owui/ui/widget.hh>
+
+
+namespace Owui { namespace Tpl {
+class TagContext;
+}}
+
+class IndexPageData;
+
+
+namespace MyApp {
+
+using namespace Owui;  
+  
+class IndexPage: public Ui::Widget
+{
+public:
+  static const char* m_className;
+  
+  virtual const char* className() const {return m_className;}  
+
+  static Object* build() {return new IndexPage;}
+  
+protected:  
+  virtual void onInitRequest();  
+  virtual void onSubmit();  
+  
+private:
+  void setCookie();
+};
+
+} // namespace MyApp
+
+#endif // _TEST_INDEX_PAGE_HH_
+

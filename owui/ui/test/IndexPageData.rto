@@ -1,0 +1,11 @@
+dynamic IndexPageData
+{
+  String greeting;
+  String lastVisit;
+  DateTime now;
+  String clockColor;
+
+  String name;
+  String secondName;
+};
+
