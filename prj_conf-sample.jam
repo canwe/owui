@@ -1,0 +1,4 @@
+# olibs build configuration
+
+OB_PROD_VARIANT    = "debug" ;
+OB_DEFINES      += "OLIBS_TRACE_ON" ;
