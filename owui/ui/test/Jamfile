@@ -1,6 +1,6 @@
 include $(OWUI_ROOT)/prj_conf.jam ;
 
-OB_LIBS = owui_ui-$(OLIBS_VER) owui_tpl-$(OLIBS_VER) owui_fcgi-$(OLIBS_VER) owui_base-$(OLIBS_VER) olibs3_rto-3.1 olibs3_file-3.1 olibs3_time-$(OLIBS_VER) olibs3_base-$(OLIBS_VER) olibs3_str-$(OLIBS_VER) olibs3_debug-$(OLIBS_VER) olibs3_txt-$(OLIBS_VER) fcgi++ fcgi ;
+OB_LIBS = owui_ui-$(OWUI_VER) owui_tpl-$(OWUI_VER) owui_fcgi-$(OWUI_VER) owui_base-$(OWUI_VER) olibs3_rto-$(OLIBS_VER) olibs3_file-$(OLIBS_VER) olibs3_time-$(OLIBS_VER) olibs3_base-$(OLIBS_VER) olibs3_str-$(OLIBS_VER) olibs3_debug-$(OLIBS_VER) olibs3_txt-$(OLIBS_VER) fcgi++ fcgi ;
 
 
 OB_LIB_DIRS = $(OLIBS3_ROOT)/lib/$(OB_PROD_VARIANT) $(OWUI_ROOT)/lib/$(OB_PROD_VARIANT) ;
