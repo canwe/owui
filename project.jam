@@ -2,4 +2,4 @@ include $(OBUILD_PATH)/obuild.jam ;
 
 OB_INC_DIRS += $(OLIBS3_ROOT) ;
 
-ob_project owui ;
+ob_project owui : 3.1 ;
