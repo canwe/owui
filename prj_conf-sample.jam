@@ -2,3 +2,6 @@
 
 OB_PROD_VARIANT    = "debug" ;
 OB_DEFINES      += "OLIBS_TRACE_ON" ;
+
+OLIBS_VER = 3.1 ;
+OWUI_VER = 1.0 ;
