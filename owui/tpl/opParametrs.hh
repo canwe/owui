@@ -62,8 +62,6 @@ public:
   OpParametrs(){}
   ~OpParametrs(){}
   
-  OpTextParametrs solve(const StaticContext& sctx, DynamicContext& dctx) const;
-  
   void fill(Olibs::Rto::Dynamic& dynamic, const StaticContext& sctx, DynamicContext& dctx) const;
   
   void add(const OpNameValueParamsPair& nameValue);
