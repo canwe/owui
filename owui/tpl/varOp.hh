@@ -15,7 +15,7 @@ class VarOp : public TextEmittingOp
 public:
   VarOp(const String& query);
 
-  virtual void exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const;  
+  virtual void exec(Ostream& os, const StaticContext&, DynamicContext& dctx) const;  
   virtual void print(Ostream& os, const String& prefix = "") const;
   virtual TextEmittingOp* clone();
 

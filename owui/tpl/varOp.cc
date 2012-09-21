@@ -16,7 +16,7 @@ VarOp::VarOp(const String& query) :
   OLIBS_ASSERT(m_query != "");
 };  
   
-void VarOp::exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const
+void VarOp::exec(Ostream& os, const StaticContext&, DynamicContext& dctx) const
 {
   Olibs::Rto::Query query(dctx.data());
   Olibs::Rto::Dynamic::Iterator value = query.query(m_query);
