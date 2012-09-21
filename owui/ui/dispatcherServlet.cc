@@ -51,7 +51,7 @@ OLIBS_DEBOUT(debOs.str());
       if(request.testEnv("CONTENT_TYPE", "application/x-www-form-urlencoded"))
         wgtLock->submit();
       
-      Tpl::Executor executor(tpl->code(), *tplMgr->codeCtx());
+      Tpl::Executor executor(tpl->code());
       
       Tpl::DynamicContext dctx(wgtLock->tplData());
       

@@ -11,9 +11,8 @@ namespace Owui {
 namespace Tpl {
 
 
-Executor::Executor(const Code& code, const StaticContext& staticContext) :
-  m_code(code),
-  m_staticContext(staticContext)
+Executor::Executor(const Code& code) :
+  m_code(code)
 {}
   
 void Executor::exec(DynamicContext& dynamicContext, Ostream& out)

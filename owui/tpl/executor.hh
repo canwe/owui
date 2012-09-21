@@ -15,11 +15,10 @@ class DynamicContext;
 
 class Executor
 {
-  const Code&          m_code;
-  const StaticContext& m_staticContext;
+  const Code& m_code;
 
 public:
-  Executor(const Code& code, const StaticContext& sctx);
+  Executor(const Code& code);
   
   void exec(DynamicContext& dctx, Ostream& out);
 };
