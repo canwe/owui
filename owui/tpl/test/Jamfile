@@ -1,9 +1,9 @@
 include $(OWUI_ROOT)/prj_conf.jam ;
 
-OB_LIBS = owui_tpl owui_base olibs3_base-3.1 olibs3_time-3.1 olibs3_rto-3.1 olibs3_txt-3.1 olibs3_file-3.1 ;
+OB_LIBS = owui_tpl-$(OWUI_VER) owui_base-$(OWUI_VER) olibs3_rto-$(OLIBS_VER) olibs3_file-$(OLIBS_VER) olibs3_time-$(OLIBS_VER) olibs3_base-$(OLIBS_VER) olibs3_str-$(OLIBS_VER) olibs3_debug-$(OLIBS_VER) olibs3_txt-$(OLIBS_VER) ;
 
 
-OB_LIB_DIRS = $(OLIBS3_ROOT)/lib/$(OB_PROD_VARIANT) ;
+OB_LIB_DIRS = $(OLIBS3_ROOT)/lib/$(OB_PROD_VARIANT) $(OWUI_ROOT)/lib/$(OB_PROD_VARIANT) ;
 
 include $(OWUI_ROOT)/project.jam ;
 

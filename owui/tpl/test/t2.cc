@@ -1,8 +1,10 @@
 #include <owui/tpl/parametrParser.hh>
+#include <owui/tpl/opParametrs.hh>
 
-
-int main (int argc, char** argv)
+int main()
 {
   Owui::Tpl::ParametrParser parser;
   parser.exec("light${color}__${size}");
+
+  return 0;
 }

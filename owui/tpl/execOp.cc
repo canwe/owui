@@ -37,6 +37,10 @@ void ExecOp::exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) 
   const Code::Commands& cmds = m_code.commands();
   typedef Code::Commands::const_iterator Cit;
 
+  
+  
+  
+  
   for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
     (*ci)->exec(os, sctx, dctx);
 }
