@@ -9,8 +9,7 @@
 namespace Owui {
 namespace Tpl {
 
-    
-class StaticContext;
+
 class DynamicContext;
 
 
@@ -19,7 +18,7 @@ class CodeOp
 public:
   virtual ~CodeOp(){}
   
-  virtual void exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const = 0;  
+  virtual void exec(Ostream& os, DynamicContext& dctx) const = 0;  
   virtual void print(Ostream& os, const String& prefix = "") const = 0;
 };
 

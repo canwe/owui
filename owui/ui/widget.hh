@@ -29,7 +29,7 @@ public:
   * 2. Из template, который в свою очередь может вызываться либо из http, либо из другого template
   context - все данные связанные с обработкой запроса
   */
-  virtual void draw(Ostream& os, const Tpl::TagContext& context) {};
+  virtual void draw(Ostream& os, const Tpl::TagContext& context);
 
   Rto::Dynamic* tplData()                 {return m_tplData.get();}
   template <class T> T& tplDataCast()     {return *((T*)m_tplData.get());}

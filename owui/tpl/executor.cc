@@ -24,7 +24,7 @@ void Executor::exec(DynamicContext& dynamicContext, Ostream& out)
   typedef Code::Commands::const_iterator Cit;
 
   for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
-    (*ci)->exec(out, m_staticContext, dynamicContext);
+    (*ci)->exec(out, dynamicContext);
 }
 
 

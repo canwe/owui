@@ -5,7 +5,7 @@
 namespace Owui {
 namespace Tpl {
 
-void TextOp::exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const
+void TextOp::exec(Ostream& os, DynamicContext& dctx) const
 {
 OLIBS_DEBOUT("exec txt: " + m_data);
   os << m_data;

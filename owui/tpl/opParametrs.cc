@@ -42,7 +42,7 @@ void OpParametr::addPart(TextEmittingOp* part)
   m_splinters.push_back(part);
 }
 
-String OpParametr::calculate(const StaticContext& sctx, DynamicContext& dctx) const
+String OpParametr::calculate(DynamicContext& dctx) const
 {
   OstringStream result;
   
@@ -50,7 +50,7 @@ String OpParametr::calculate(const StaticContext& sctx, DynamicContext& dctx) co
   {
     TextEmittingOp* ptr = *pos;
     OLIBS_ASSERT(ptr != 0);
-    ptr->exec(result, sctx, dctx);
+    ptr->exec(result, dctx);
   }
   
   return result.str();
@@ -73,20 +73,20 @@ OpNameValueParamsPair::OpNameValueParamsPair(const OpParametr& paramName, const 
   m_paramValue(paramValue)
 {}
 
-String OpNameValueParamsPair::name(const StaticContext& sctx, DynamicContext& dctx) const
+String OpNameValueParamsPair::name(DynamicContext& dctx) const
 {
-  return m_paramName.calculate(sctx, dctx);
+  return m_paramName.calculate(dctx);
 }
 
-String OpNameValueParamsPair::value(const StaticContext& sctx, DynamicContext& dctx) const
+String OpNameValueParamsPair::value(DynamicContext& dctx) const
 {
-  return m_paramValue.calculate(sctx, dctx);  
+  return m_paramValue.calculate(dctx);  
 }
 
-void OpParametrs::fill(Olibs::Rto::Dynamic& dynamic, const StaticContext& sctx, DynamicContext& dctx) const
+void OpParametrs::fill(Olibs::Rto::Dynamic& dynamic, DynamicContext& dctx) const
 {
   for(ParamsContainer::const_iterator pos = m_params.begin(); pos != m_params.end(); ++pos)
-    dynamic.parseField(pos->value(sctx, dctx), pos->name(sctx, dctx));
+    dynamic.parseField(pos->value(dctx), pos->name(dctx));
 }
 
 void OpParametrs::add(const OpNameValueParamsPair& nameValue)

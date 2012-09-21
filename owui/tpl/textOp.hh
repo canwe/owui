@@ -19,7 +19,7 @@ public:
 public:
   const String& data() const   {return m_data; }
   
-  virtual void exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const;  
+  virtual void exec(Ostream& os, DynamicContext& dctx) const;  
   virtual void print(Ostream& os, const String& prefix = "") const;
   virtual TextEmittingOp* clone();
 };

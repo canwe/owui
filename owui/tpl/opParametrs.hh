@@ -30,7 +30,7 @@ public:
   OpParametr& operator= (const OpParametr&);  
   
   void addPart(TextEmittingOp* part);
-  String calculate(const StaticContext& sctx, DynamicContext& dctx) const;
+  String calculate(DynamicContext& dctx) const;
   
   void clear();
   void copy(const OpParametr&);
@@ -46,8 +46,8 @@ public:
   OpNameValueParamsPair(const OpParametr& paramName, const OpParametr& paramValue);
   ~OpNameValueParamsPair(){}
   
-  String name(const StaticContext& sctx, DynamicContext& dctx) const;
-  String value(const StaticContext& sctx, DynamicContext& dctx) const;  
+  String name(DynamicContext& dctx) const;
+  String value(DynamicContext& dctx) const;  
 
 private:
   OpParametr m_paramName;
@@ -62,7 +62,7 @@ public:
   OpParametrs(){}
   ~OpParametrs(){}
   
-  void fill(Olibs::Rto::Dynamic& dynamic, const StaticContext& sctx, DynamicContext& dctx) const;
+  void fill(Olibs::Rto::Dynamic& dynamic, DynamicContext& dctx) const;
   
   void add(const OpNameValueParamsPair& nameValue);
   

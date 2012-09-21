@@ -1,10 +1,10 @@
+#include <olibs/base/assert.hh>
 #include <owui/tpl/execOp.hh>
 #include <owui/tpl/staticContext.hh>
 #include <owui/tpl/dynamicContext.hh>
 #include <owui/tpl/tag.hh>
-#include <olibs/base/assert.hh>
 #include <owui/tpl/code.hh>
-
+#include <owui/tpl/templateManager.hh>
 #include <sstream>
 
 
@@ -22,27 +22,27 @@ ExecOp::ExecOp(const String& tagName, const OpParametrs& params) :
     m_tagName = "/" + m_tagName;  
 }
 
-void ExecOp::exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const
+void ExecOp::exec(Ostream& os, DynamicContext& dctx) const
 {
+  const StaticContext& sctx = *TemplateManager::instance()->codeCtx();
+  
   const TagInfo& tagInfo = sctx.tagCatalog().findInfo(m_tagName);
   Olibs::Optr<Olibs::Rto::Dynamic> paramsDynamic(new Rto::Dynamic(*tagInfo.m_paramsMeta));
-  m_params.fill(*paramsDynamic.get(), sctx, dctx);
-    
+  m_params.fill(*paramsDynamic.get(), dctx);
+  
+  
   TagContext tagCtx;
   tagCtx.m_params = paramsDynamic;
   
   TagLock tagLock(sctx.tagAllocator(), tagName());
   tagLock->draw(os, tagCtx);
-    
+  
+  
   const Code::Commands& cmds = m_code.commands();
   typedef Code::Commands::const_iterator Cit;
 
-  
-  
-  
-  
   for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
-    (*ci)->exec(os, sctx, dctx);
+    (*ci)->exec(os, dctx);
 }
 
 void ExecOp::print(Ostream& os, const String& prefix) const

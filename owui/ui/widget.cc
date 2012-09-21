@@ -37,6 +37,9 @@ void Widget::submit()
   onSubmit();
 }
 
+void Widget::draw(Ostream& os, const Tpl::TagContext& context) 
+{}
+
 
 } // namespace Ui
 } // namespace Owui

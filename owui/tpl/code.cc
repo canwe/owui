@@ -2,6 +2,7 @@
 #include <owui/tpl/codeOp.hh>
 #include <olibs/base/assert.hh>
 #include <owui/tpl/varOp.hh>
+#include <owui/tpl/tag.hh>
 
 using Owui::Tpl::Code;
 

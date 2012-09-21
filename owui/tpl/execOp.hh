@@ -24,7 +24,7 @@ public:
   const String& tagName() const {return m_tagName;}
   String name() const {return m_tagName.substr(1, String::npos);}
   
-  virtual void exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const;
+  virtual void exec(Ostream& os, DynamicContext& dctx) const;
   virtual void print(Ostream& os, const String& prefix = "" ) const;
   virtual void attachSubNode(CodeOp* op){m_code.put(op);}; 
 
@@ -45,7 +45,7 @@ public:
   virtual void attachSubNode(CodeOp* op);
   
 private:  
-  virtual void exec(Ostream& os, const StaticContext& sctx, DynamicContext& dctx) const {};  
+  virtual void exec(Ostream& os, DynamicContext& dctx) const {};  
   virtual void print(Ostream& os, const String& prefix = "" ) const {};  
   
 private:

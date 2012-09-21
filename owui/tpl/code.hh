@@ -1,7 +1,6 @@
 #ifndef _OWUI_TPL_CODE_HH_
 #define _OWUI_TPL_CODE_HH_
 
-#include <owui/tpl/tag.hh>
 #include <owui/tpl/base.hh>
 #include <list>
 
@@ -11,6 +10,7 @@ namespace Tpl {
 
 class CodeOp;
 class VarOp;
+class TagInfo;
 
 class Code
 {
