@@ -13,6 +13,21 @@ We try to use a widget:
 
 
 
+<: myapp/clockWidget color="green":>
+  <: myapp/clockWidget color="${color}":>
+    ${color}
+  <:/myapp/clockWidget:> 
+<:/myapp/clockWidget:> 
+
+
+<br><br>
+<: myapp/clockWidget:>${someRequest}<:/myapp/clockWidget:> 
+<br><br>
+
+
+<br><br>
+<: myapp/clockWidget someField="true" :><:/myapp/clockWidget:> 
+<br><br>
 
 <p> Your last visit is ${lastVisit} </p>
 

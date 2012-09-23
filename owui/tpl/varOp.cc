@@ -18,10 +18,17 @@ VarOp::VarOp(const String& query) :
   
 void VarOp::exec(Ostream& os, DynamicContext& dctx) const
 {
-  Olibs::Rto::Query query(dctx.data());
-  Olibs::Rto::Dynamic::Iterator value = query.query(m_query);
+  try
+  {
+    Olibs::Rto::Query query(dctx.data());
+    Olibs::Rto::Dynamic::Iterator value = query.query(m_query);
   
-  value.print(os);
+    value.print(os);
+  }
+  catch(Olibs::Rto::HiMeta::FieldNotFoundEx& ex)
+  {
+    os << ex.what();
+  }
 }
 
 void VarOp::print(Ostream& os, const String& prefix) const

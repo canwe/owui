@@ -32,7 +32,6 @@ void Code::registrateVariable(VarOp* var)
 
 /* since all the query are requests to a parent widget (not to the index page!)*/
 /* static checking of they correctness is no longer supported */
-/* howewer, unawiabilyty to find request at runtime should not cause abortion of whole script */
 void Code::chex(const TagInfo& tagInfo)const
 {
   /*
