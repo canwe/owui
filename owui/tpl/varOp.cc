@@ -27,7 +27,7 @@ void VarOp::exec(Ostream& os, DynamicContext& dctx) const
   }
   catch(Olibs::Rto::HiMeta::FieldNotFoundEx& ex)
   {
-    os << ex.what();
+    os << "ex: " << ex.what();
   }
 }
 

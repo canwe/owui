@@ -28,11 +28,17 @@ void ExecOp::exec(Ostream& os, DynamicContext& dctx) const
   const TagInfo& tagInfo = sctx.tagCatalog().findInfo(m_tagName);
   
   Olibs::Optr<Olibs::Rto::Dynamic> paramsDynamic(new Rto::Dynamic(*tagInfo.m_paramsMeta));
-  m_params.fill(*paramsDynamic.get(), dctx);
+  try
+  {
+    m_params.fill(*paramsDynamic.get(), dctx);
+  }
+  catch(Olibs::Rto::HiMeta::FieldNotFoundEx& ex)
+  {
+    os << m_tagName << " ex: " << ex.what();
+    return;
+  }  
   
-  
-  
-  
+
   TagContext tagCtx;
   tagCtx.m_params = paramsDynamic;
   tagCtx.m_childCommands = &m_code.commands();
@@ -40,19 +46,6 @@ void ExecOp::exec(Ostream& os, DynamicContext& dctx) const
   
   TagLock tagLock(sctx.tagAllocator(), tagName());
   tagLock->draw(os, tagCtx);
-  
-  
-  
-  
-  
-  
-  /*
-  const Code::Commands& cmds = m_code.commands();
-  typedef Code::Commands::const_iterator Cit;
-
-  for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
-    (*ci)->exec(os, dctx);
-  */
 }
 
 void ExecOp::print(Ostream& os, const String& prefix) const
