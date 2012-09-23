@@ -26,6 +26,7 @@ void myTest_clockWidget_registerWidget()
   Factory::instance()->reg(ClockWidget::m_className, ClockWidget::build);
 }
 
+/*
 void ClockWidget::draw(Ostream& os, const Tpl::TagContext& ctx)
 {
   const ClockWidgetParams* const  params = static_cast<const ClockWidgetParams* const>(ctx.m_params);
@@ -43,9 +44,29 @@ void ClockWidget::draw(Ostream& os, const Tpl::TagContext& ctx)
   
   os << "</font>\n";
   os << "</span>\n";
+}
+*/
+void ClockWidget::beginDrawing(Ostream& os, const Tpl::TagContext& context)
+{
+  const ClockWidgetParams* const  params = static_cast<const ClockWidgetParams* const>(context.m_params);
+  
+  Time::DateTime time = Time::DateTime::current(); 
+  
+  os
+    << "<font color=\"" << params->getColor() << "\">\n"
+    << "<span>\n"
+    << "  <em>" << time << "</em>\n"
+  ;  
+}
+void ClockWidget::endDrawing(Ostream& os, const Tpl::TagContext& context)
+{
+  os << "</font>\n";
+  os << "</span>\n";  
+}
 
-  
-  
+void ClockWidget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
+{
+  Widget::drawChildWidgets(os, context);
 }
 
 } // namespace MyApp

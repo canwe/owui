@@ -19,9 +19,15 @@ public:
   static const char* m_className;
   
   virtual const char* className() const {return m_className;}  
-  virtual void draw(Ostream& os, const Tpl::TagContext& context);
+  //virtual void draw(Ostream& os, const Tpl::TagContext& context);
 
   static Object* build() {return new ClockWidget();}
+  
+private:  
+  virtual void beginDrawing(Ostream& os, const Tpl::TagContext& context);
+  virtual void endDrawing(Ostream& os, const Tpl::TagContext& context);    
+  virtual void drawChildWidgets(Ostream& os, const Tpl::TagContext& context);
+  
 };
 
 } // namespace MyApp

@@ -1,6 +1,7 @@
 #include <owui/ui/widget.hh>
 #include <owui/ui/widgetCatalog.hh>
-
+#include <owui/tpl/dynamicContext.hh>
+#include <owui/tpl/execOp.hh>
 
 namespace Owui {
 namespace Ui {
@@ -38,7 +39,29 @@ void Widget::submit()
 }
 
 void Widget::draw(Ostream& os, const Tpl::TagContext& context) 
-{}
+{
+  beginDrawing(os, context);
+  drawChildWidgets(os, context);
+  endDrawing(os, context);
+}
+
+void Widget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
+{
+  OLIBS_ASSERT(context.m_dctx != 0);
+  OLIBS_ASSERT(context.m_childCommands != 0);
+  OLIBS_ASSERT(context.m_params != 0);
+  
+
+  context.m_dctx->push(context.m_params);
+  
+  const Tpl::Code::Commands& cmds = *context.m_childCommands;
+  typedef Tpl::Code::Commands::const_iterator Cit;
+
+  for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
+    (*ci)->exec(os, *context.m_dctx);
+  
+  context.m_dctx->pop();
+}
 
 
 } // namespace Ui

@@ -1,14 +1,24 @@
 This is a test page.<br>
 ${greeting} <br>
 Time from page controller: ${now} <br>
-We try to use a widget: 
 
-<: myapp/clockWidget color="${clockColor}" :><br>${greeting}<:/myapp/clockWidget:>  
+
+
+We try to use a widget: 
+<: myapp/clockWidget color="${clockColor}" :><br>widget body has the same color with widget<br><:/myapp/clockWidget:>  
+
+<br><br><br>
+
+<: myapp/clockWidget color="dark${clockColor}" :><br>my color is: ${color}<br><:/myapp/clockWidget:> 
+
+
+
 
 <p> Your last visit is ${lastVisit} </p>
 
-<br>
-How it is?<br>
+
+
+
 
 <br><br><br><br><br>
 

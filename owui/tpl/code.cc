@@ -30,8 +30,12 @@ void Code::registrateVariable(VarOp* var)
   m_variables.push_back(var);
 }
 
+/* since all the query are requests to a parent widget (not to the index page!)*/
+/* static checking of they correctness is no longer supported */
+/* howewer, unawiabilyty to find request at runtime should not cause abortion of whole script */
 void Code::chex(const TagInfo& tagInfo)const
 {
+  /*
   const Rto::HiMeta* pageData = tagInfo.m_tplDataMeta;
   OLIBS_ASSERT(pageData != 0);
 
@@ -43,4 +47,5 @@ void Code::chex(const TagInfo& tagInfo)const
 
     pageData->checkQuery(var->query());
   }  
+  */
 }

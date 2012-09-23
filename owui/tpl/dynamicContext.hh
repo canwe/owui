@@ -4,6 +4,9 @@
 #include <owui/tpl/base.hh>
 #include <olibs/base/optr.hh>
 #include <olibs/rto/dynamic.hh>
+#include <stack>
+#include <list>
+
 
 namespace Owui {
 namespace Tpl {
@@ -12,14 +15,15 @@ namespace Tpl {
 class DynamicContext
 {
 public:  
-  DynamicContext(Rto::Dynamic* data):
-    m_data(data)
-  {}
-
-  const Olibs::Rto::Dynamic* data() const {return m_data;}
+  DynamicContext();
+  const Olibs::Rto::Dynamic* data() const;
   
-private:
-  Rto::Dynamic* m_data;
+  
+  void push(const Rto::Dynamic* data);
+  void pop();
+  
+private: 
+  std::stack<const Olibs::Rto::Dynamic*, std::list<const Olibs::Rto::Dynamic*> > m_contexts;
 };
 
 
@@ -27,4 +31,3 @@ private:
 } // namespace Owui
 
 #endif // _OWUI_TPL_CODE_CONTEXT_HH_
-

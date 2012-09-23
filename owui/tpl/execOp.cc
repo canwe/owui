@@ -25,24 +25,34 @@ ExecOp::ExecOp(const String& tagName, const OpParametrs& params) :
 void ExecOp::exec(Ostream& os, DynamicContext& dctx) const
 {
   const StaticContext& sctx = *TemplateManager::instance()->codeCtx();
-  
   const TagInfo& tagInfo = sctx.tagCatalog().findInfo(m_tagName);
+  
   Olibs::Optr<Olibs::Rto::Dynamic> paramsDynamic(new Rto::Dynamic(*tagInfo.m_paramsMeta));
   m_params.fill(*paramsDynamic.get(), dctx);
   
   
+  
+  
   TagContext tagCtx;
   tagCtx.m_params = paramsDynamic;
+  tagCtx.m_childCommands = &m_code.commands();
+  tagCtx.m_dctx = &dctx;
   
   TagLock tagLock(sctx.tagAllocator(), tagName());
   tagLock->draw(os, tagCtx);
   
   
+  
+  
+  
+  
+  /*
   const Code::Commands& cmds = m_code.commands();
   typedef Code::Commands::const_iterator Cit;
 
   for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
     (*ci)->exec(os, dctx);
+  */
 }
 
 void ExecOp::print(Ostream& os, const String& prefix) const

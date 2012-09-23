@@ -7,7 +7,7 @@ namespace Tpl {
 
 void TextOp::exec(Ostream& os, DynamicContext& dctx) const
 {
-OLIBS_DEBOUT("exec txt: " + m_data);
+  OLIBS_DEBOUT("exec txt: " + m_data);
   os << m_data;
 }
 

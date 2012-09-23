@@ -53,7 +53,8 @@ OLIBS_DEBOUT(debOs.str());
       
       Tpl::Executor executor(tpl->code());
       
-      Tpl::DynamicContext dctx(wgtLock->tplData());
+      Tpl::DynamicContext dctx;
+      dctx.push(wgtLock->tplData());
       
       executor.exec(dctx, reqCtx.response().os());
     }

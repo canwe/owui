@@ -18,11 +18,14 @@ namespace Tpl {
 
   
 class Tag;
-  
+class DynamicContext;
 
 struct TagContext
 {
   const Olibs::Rto::Dynamic* m_params;
+  const Code::Commands* m_childCommands;
+  DynamicContext* m_dctx;
+  
 //    const Olibs::Rto::Dynamic* m_import;  // Внешние данные которые будут видны (обычно из parrent widget)
 //    String              m_tplFname;
 };

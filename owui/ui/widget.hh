@@ -49,6 +49,11 @@ protected:
   virtual void onInitRequest() {};  
   virtual void onSubmit()      {};  
   
+  virtual void beginDrawing(Ostream& os, const Tpl::TagContext& context){};
+  virtual void drawChildWidgets(Ostream& os, const Tpl::TagContext& context);
+  virtual void endDrawing(Ostream& os, const Tpl::TagContext& context){};  
+  
+  
 private:
   RequestContext*           m_requestContext;
   Optr<Rto::Dynamic>        m_tplData;
