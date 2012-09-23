@@ -218,7 +218,10 @@ void Parser::parseParametrs(const String& params, std::pair<String, String>& par
   for(Olibs::Str::Tokenizer::iterator it = tok.begin(); it != tok.end(); ++it)
     if(*it != "")
       parametrs.push_back(*it);
-   
+  
+  if(parametrs.size() != 2)  
+    throw ParserEx("Wrong parametrs format");
+    
   parsedParams.first = parametrs.at(0);
   String value = parametrs.at(1);   
 
