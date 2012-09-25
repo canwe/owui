@@ -23,7 +23,11 @@ void VarOp::exec(Ostream& os, DynamicContext& dctx) const
     Olibs::Rto::Query query(dctx.data());
     Olibs::Rto::Dynamic::Iterator value = query.query(m_query);
   
-    value.print(os);
+    if(!value.isDynamicReference() && !value.isListOfDynamic())
+      value.print(os);
+    else /*oly temporary*/ //\todo
+      os << value.name();
+
   }
   catch(Olibs::Rto::HiMeta::FieldNotFoundEx& ex)
   {

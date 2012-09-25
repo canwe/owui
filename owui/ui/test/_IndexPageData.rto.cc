@@ -4,6 +4,49 @@
 
 
 
+FullName::FullName() : Olibs::Rto::Dynamic(staticMeta()) {}
+FullName::FullName(const Olibs::Rto::HiMeta& meta) : Olibs::Rto::Dynamic(meta) {}
+Olibs::Rto::HiMeta* FullName::createMeta()
+{
+  Olibs::Rto::HiMeta* meta = new Olibs::Rto::HiMeta();
+  meta->addField(fid_firsName, "firsName", new Olibs::Rto::Tmeta<Olibs::String>());
+  meta->addField(fid_secondName, "secondName", new Olibs::Rto::Tmeta<Olibs::String>());
+  return meta;
+}
+void FullName::setFirsName(Olibs::String const& firsName)
+{
+  Olibs::Rto::Dynamic::at<Olibs::String>(fid_firsName) = firsName;
+}
+
+Olibs::String FullName::getFirsName() const
+{
+  return Olibs::Rto::Dynamic::at<Olibs::String>(fid_firsName);
+}
+
+void FullName::setSecondName(Olibs::String const& secondName)
+{
+  Olibs::Rto::Dynamic::at<Olibs::String>(fid_secondName) = secondName;
+}
+
+Olibs::String FullName::getSecondName() const
+{
+  return Olibs::Rto::Dynamic::at<Olibs::String>(fid_secondName);
+}
+
+const Olibs::Rto::HiMeta& FullName::staticMeta()
+{
+  using namespace Olibs::Rto;
+  Meta* meta = MetaCache::instance()->find("FullName");
+  if(meta == 0)
+  {
+    meta = createMeta();
+    MetaCache::instance()->put(meta, "FullName");
+  }
+  return *((HiMeta*)meta);
+}
+
+
+
 IndexPageData::IndexPageData() : Olibs::Rto::Dynamic(staticMeta()) {}
 IndexPageData::IndexPageData(const Olibs::Rto::HiMeta& meta) : Olibs::Rto::Dynamic(meta) {}
 Olibs::Rto::HiMeta* IndexPageData::createMeta()
@@ -15,6 +58,7 @@ Olibs::Rto::HiMeta* IndexPageData::createMeta()
   meta->addField(fid_clockColor, "clockColor", new Olibs::Rto::Tmeta<Olibs::String>());
   meta->addField(fid_name, "name", new Olibs::Rto::Tmeta<Olibs::String>());
   meta->addField(fid_secondName, "secondName", new Olibs::Rto::Tmeta<Olibs::String>());
+  meta->addField(fid_names, "names", new Olibs::Rto::DynamicListOfDynamic());
   return meta;
 }
 void IndexPageData::setGreeting(Olibs::String const& greeting)
@@ -75,6 +119,16 @@ void IndexPageData::setSecondName(Olibs::String const& secondName)
 Olibs::String IndexPageData::getSecondName() const
 {
   return Olibs::Rto::Dynamic::at<Olibs::String>(fid_secondName);
+}
+
+void IndexPageData::setNames(Olibs::Rto::ListOfTypedDynamic<FullName>* const& names)
+{
+  Olibs::Rto::Dynamic::at<Olibs::Rto::ListOfTypedDynamic<FullName>*>(fid_names) = names;
+}
+
+Olibs::Rto::ListOfTypedDynamic<FullName>* IndexPageData::getNames() const
+{
+  return Olibs::Rto::Dynamic::at<Olibs::Rto::ListOfTypedDynamic<FullName>*>(fid_names);
 }
 
 const Olibs::Rto::HiMeta& IndexPageData::staticMeta()

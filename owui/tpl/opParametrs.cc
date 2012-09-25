@@ -1,6 +1,7 @@
 #include <owui/tpl/opParametrs.hh>
 #include <owui/tpl/codeOp.hh>
 #include <olibs/base/assert.hh>
+#include <owui/tpl/dynamicContext.hh>
 #include <sstream>
 
 
@@ -86,7 +87,23 @@ String OpNameValueParamsPair::value(DynamicContext& dctx) const
 void OpParametrs::fill(Olibs::Rto::Dynamic& dynamic, DynamicContext& dctx) const
 {
   for(ParamsContainer::const_iterator pos = m_params.begin(); pos != m_params.end(); ++pos)
-    dynamic.parseField(pos->value(dctx), pos->name(dctx));
+  {
+    Olibs::Rto::Dynamic::Iterator field = dynamic.field(pos->name(dctx));
+
+    if(field.isDynamicReference())
+    {
+      *dynamic.at<Olibs::Rto::Dynamic**>(pos->name(dctx)) = *dctx.data()->at<Olibs::Rto::Dynamic**>(pos->value(dctx));      
+    }
+    else if(field.isListOfDynamic())
+    {
+      //dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = new Olibs::Rto::ListOfDynamic();
+      //*dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = *dctx.data()->at<Olibs::Rto::ListOfDynamic*>(pos->value(dctx));      
+      dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = dctx.data()->at<Olibs::Rto::ListOfDynamic*>(pos->value(dctx)); 
+    }
+    else
+      dynamic.parseField(pos->value(dctx), pos->name(dctx));
+    
+  }
 }
 
 void OpParametrs::add(const OpNameValueParamsPair& nameValue)

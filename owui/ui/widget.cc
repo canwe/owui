@@ -51,7 +51,6 @@ void Widget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
   OLIBS_ASSERT(context.m_childCommands != 0);
   OLIBS_ASSERT(context.m_params != 0);
   
-
   context.m_dctx->push(context.m_params);
   
   const Tpl::Code::Commands& cmds = *context.m_childCommands;
@@ -59,7 +58,7 @@ void Widget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
 
   for(Cit ci = cmds.begin(); ci != cmds.end(); ++ci)
     (*ci)->exec(os, *context.m_dctx);
-  
+    
   context.m_dctx->pop();
 }
 

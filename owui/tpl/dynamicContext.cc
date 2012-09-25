@@ -4,8 +4,8 @@
 
 namespace Owui {
 namespace Tpl {
-  
-  
+
+
 DynamicContext::DynamicContext()
 {}  
 
@@ -30,7 +30,6 @@ void DynamicContext::pop()
   OLIBS_ASSERT(m_contexts.size() > 0);
 }
 
-  
 
 } // namespace Tpl
 } // namespace Owui

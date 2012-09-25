@@ -14,10 +14,9 @@ namespace Tpl {
 
 class DynamicContext
 {
-public:  
+public:    
   DynamicContext();
   const Olibs::Rto::Dynamic* data() const;
-  
   
   void push(const Rto::Dynamic* data);
   void pop();

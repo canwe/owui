@@ -1,3 +1,12 @@
+
+dynamic FullName
+{
+  String firsName;
+  String secondName;
+}
+
+
+
 dynamic IndexPageData
 {
   String greeting;
@@ -7,5 +16,8 @@ dynamic IndexPageData
 
   String name;
   String secondName;
-};
+
+
+  List<FullName> names;
+}
 

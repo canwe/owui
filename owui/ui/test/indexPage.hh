@@ -30,6 +30,8 @@ protected:
   
 private:
   void setCookie();
+  Olibs::Optr<Olibs::Rto::ListOfTypedDynamic<FullName> > m_listOfNames;
+  
 };
 
 } // namespace MyApp

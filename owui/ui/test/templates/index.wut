@@ -5,7 +5,7 @@ Time from page controller: ${now} <br>
 
 
 We try to use a widget: 
-<: myapp/clockWidget color :><br>widget body has the same color with widget<br><:/myapp/clockWidget:>  
+<: myapp/clockWidget color="${clockColor}" :><br>widget body has the same color with widget<br><:/myapp/clockWidget:>  
 
 <br><br><br>
 
@@ -13,7 +13,7 @@ We try to use a widget:
 
 
 
-<: myapp/clockWidget color="green":>
+<: myapp/clockWidget color="green" :>
   <: myapp/clockWidget color="${color}":>
     ${color}
   <:/myapp/clockWidget:> 
@@ -36,6 +36,16 @@ We try to use a widget:
 
 
 <br><br><br><br><br>
+
+${names}
+
+<br><br><br><br><br>
+
+
+
+<: myapp/loopWidget list="${names}":>  
+  ${i.secondName} ${i.firsName} <br>
+<:/myapp/loopWidget:> 
 
 
 

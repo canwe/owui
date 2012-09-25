@@ -38,6 +38,29 @@ void IndexPage::onInitRequest()
   
   data.setLastVisit(request().cookie("owui_lastVisit", false));
   
+  
+  m_listOfNames = new Olibs::Rto::ListOfTypedDynamic<FullName>();
+  {
+    FullName* element = new FullName();
+    element->setFirsName("Juriy");
+    element->setSecondName("Gagarin");
+    listOfNames->addElement(element);
+  }
+  {
+    FullName* element = new FullName();
+    element->setFirsName("Konstantin");
+    element->setSecondName("Feoktistov");
+    listOfNames->addElement(element);
+  }  
+  {
+    FullName* element = new FullName();
+    element->setFirsName("Valentina");
+    element->setSecondName("Tereshkova");
+    listOfNames->addElement(element);
+  }    
+  data.setNames(m_listOfNames);
+
+
   setCookie();
 }
 
