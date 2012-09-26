@@ -16,7 +16,7 @@ using namespace Owui;
 class LoopWidget: public Ui::Widget
 {
 public:
-  enum {fid_list, fid_local};
+  enum {fid_list, fid_variable};
   static const char* m_className;
   
   virtual const char* className() const {return m_className;}  
