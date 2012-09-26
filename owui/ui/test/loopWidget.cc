@@ -47,16 +47,12 @@ void LoopWidget::drawBody(Ostream& os, const Tpl::TagContext& context)
 {
   OLIBS_ASSERT(context.m_params->at<Olibs::Rto::ListOfDynamic*>(fid_list) != 0);
   
-
-  Tpl::TagContext localContext;
-  localContext.m_childCommands = context.m_childCommands;
-  localContext.m_dctx = context.m_dctx;
-
   Olibs::Optr<Olibs::Rto::Dynamic> localParamsDynamic(new Rto::Dynamic(context.m_params->meta()));
   
   localParamsDynamic->at<Olibs::Rto::ListOfDynamic*>(fid_list) = context.m_params->at<Olibs::Rto::ListOfDynamic*>(fid_list);
   Olibs::Rto::ListOfDynamic& list = *localParamsDynamic->at<Olibs::Rto::ListOfDynamic*>(fid_list);
 
+  Tpl::TagContext localContext(context);
   localContext.m_params = localParamsDynamic;
   
   for(Olibs::Rto::ListOfDynamic::Iterator it = list.begin(); it != list.end(); ++it)

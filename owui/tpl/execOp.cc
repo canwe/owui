@@ -38,12 +38,7 @@ void ExecOp::exec(Ostream& os, DynamicContext& dctx) const
     return;
   }  
   
-
-  TagContext tagCtx;
-  tagCtx.m_params = paramsDynamic;
-  tagCtx.m_childCommands = &m_code.commands();
-  tagCtx.m_dctx = &dctx;
-  
+  TagContext tagCtx(paramsDynamic, &m_code.commands(), &dctx);  
   TagLock tagLock(sctx.tagAllocator(), tagName());
   tagLock->draw(os, tagCtx);
 }
