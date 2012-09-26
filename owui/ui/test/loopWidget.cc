@@ -46,10 +46,11 @@ void LoopWidget::drawBody(Ostream& os, const Tpl::TagContext& context)
 
   Tpl::TagContext localContext(context);
   localContext.m_params = localParamsDynamic;
-  
+
   for(Rto::ListOfDynamic::Iterator it = list.begin(); it != list.end(); ++it)
   {
-    localParamsDynamic->at<Rto::Dynamic*>(fid_variable) = *it;    
+    OLIBS_ASSERT(*it != 0);
+    localParamsDynamic->at<Rto::Dynamic*>(fid_variable) = *it;
     Widget::drawBody(os, localContext);
   }
 }

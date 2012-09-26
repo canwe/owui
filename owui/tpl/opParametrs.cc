@@ -92,13 +92,13 @@ void OpParametrs::fill(Olibs::Rto::Dynamic& dynamic, DynamicContext& dctx) const
 
     if(field.isDynamicReference())
     {
-      *dynamic.at<Olibs::Rto::Dynamic**>(pos->name(dctx)) = *dctx.data()->at<Olibs::Rto::Dynamic**>(pos->value(dctx));      
+      //\todo: de something safer here (chech they types etc)
+      dynamic.at<Olibs::Rto::Dynamic*>(pos->name(dctx)) = dctx.data()->at<Olibs::Rto::Dynamic*>(pos->value(dctx));
     }
     else if(field.isListOfDynamic())
     {
-      //dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = new Olibs::Rto::ListOfDynamic();
-      //*dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = *dctx.data()->at<Olibs::Rto::ListOfDynamic*>(pos->value(dctx));      
-      dynamic.at<Olibs::Rto::ListOfDynamic*>(pos->name(dctx)) = dctx.data()->at<Olibs::Rto::ListOfDynamic*>(pos->value(dctx)); 
+      //\todo: and here
+      dynamic.at<Rto::ListOfDynamic*>(pos->name(dctx)) = dctx.data()->at<Rto::ListOfDynamic*>(pos->value(dctx));
     }
     else
       dynamic.parseField(pos->value(dctx), pos->name(dctx));
