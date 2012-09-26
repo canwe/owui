@@ -26,8 +26,11 @@ struct TagContext
   const Code::Commands* m_childCommands;
   DynamicContext* m_dctx;
   
-//    const Olibs::Rto::Dynamic* m_import;  // Внешние данные которые будут видны (обычно из parrent widget)
-//    String              m_tplFname;
+  TagContext(const Rto::Dynamic* params, const Code::Commands* childCommands, DynamicContext* dctx);
+  TagContext() : m_params(0), m_childCommands(0), m_dctx(0){};
+  
+  TagContext(const TagContext& rhs);
+  TagContext& operator= (const TagContext& rhs);
 };
 
 
