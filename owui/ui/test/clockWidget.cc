@@ -64,9 +64,9 @@ void ClockWidget::endDrawing(Ostream& os, const Tpl::TagContext& context)
   os << "</span>\n";  
 }
 
-void ClockWidget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
+void ClockWidget::drawBody(Ostream& os, const Tpl::TagContext& context)
 {
-  Widget::drawChildWidgets(os, context);
+  Widget::drawBody(os, context);
 }
 
 } // namespace MyApp

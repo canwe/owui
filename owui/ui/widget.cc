@@ -41,11 +41,11 @@ void Widget::submit()
 void Widget::draw(Ostream& os, const Tpl::TagContext& context) 
 {
   beginDrawing(os, context);
-  drawChildWidgets(os, context);
+  drawBody(os, context);
   endDrawing(os, context);
 }
 
-void Widget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
+void Widget::drawBody(Ostream& os, const Tpl::TagContext& context)
 {
   OLIBS_ASSERT(context.m_dctx != 0);
   OLIBS_ASSERT(context.m_childCommands != 0);

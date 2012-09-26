@@ -2,7 +2,7 @@
 #define _TEST_INDEX_PAGE_HH_
 
 #include <owui/ui/widget.hh>
-
+#include "_IndexPageData.rto.hh"
 
 namespace Owui { namespace Tpl {
 class TagContext;

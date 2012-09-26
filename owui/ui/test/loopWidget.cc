@@ -37,15 +37,13 @@ void myTest_loopWidget_registerWidget()
 
 void LoopWidget::beginDrawing(Ostream& os, const Tpl::TagContext& context)
 {
-
 }
 
 void LoopWidget::endDrawing(Ostream& os, const Tpl::TagContext& context)
 {
-
 }
 
-void LoopWidget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
+void LoopWidget::drawBody(Ostream& os, const Tpl::TagContext& context)
 {
   OLIBS_ASSERT(context.m_params->at<Olibs::Rto::ListOfDynamic*>(fid_list) != 0);
   
@@ -64,7 +62,7 @@ void LoopWidget::drawChildWidgets(Ostream& os, const Tpl::TagContext& context)
   for(Olibs::Rto::ListOfDynamic::Iterator it = list.begin(); it != list.end(); ++it)
   {
     localParamsDynamic->at<Olibs::Rto::Dynamic*>(fid_local) = *it;    
-    Widget::drawChildWidgets(os, localContext);
+    Widget::drawBody(os, localContext);
   }
 }
 

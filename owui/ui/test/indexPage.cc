@@ -3,7 +3,6 @@
 #include <olibs/rto/meta.hh>
 #include <olibs/time/dateTime.hh>
 #include <olibs/base/factory.hh>
-#include "_IndexPageData.rto.hh"
 
 
 namespace MyApp {
@@ -39,26 +38,27 @@ void IndexPage::onInitRequest()
   data.setLastVisit(request().cookie("owui_lastVisit", false));
   
   
-  m_listOfNames = new Olibs::Rto::ListOfTypedDynamic<FullName>();
+  //m_listOfNames.give(new Olibs::Rto::ListOfTypedDynamic<FullName>());
+  Olibs::Rto::ListOfTypedDynamic<FullName>* list = new Olibs::Rto::ListOfTypedDynamic<FullName>();
   {
     FullName* element = new FullName();
     element->setFirsName("Juriy");
     element->setSecondName("Gagarin");
-    listOfNames->addElement(element);
+    list->addElement(element);
   }
   {
     FullName* element = new FullName();
     element->setFirsName("Konstantin");
     element->setSecondName("Feoktistov");
-    listOfNames->addElement(element);
+    list->addElement(element);
   }  
   {
     FullName* element = new FullName();
     element->setFirsName("Valentina");
     element->setSecondName("Tereshkova");
-    listOfNames->addElement(element);
+    list->addElement(element);
   }    
-  data.setNames(m_listOfNames);
+  data.setNames(list);
 
 
   setCookie();

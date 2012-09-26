@@ -26,7 +26,7 @@ public:
 private:  
   virtual void beginDrawing(Ostream& os, const Tpl::TagContext& context);
   virtual void endDrawing(Ostream& os, const Tpl::TagContext& context);    
-  virtual void drawChildWidgets(Ostream& os, const Tpl::TagContext& context);
+  virtual void drawBody(Ostream& os, const Tpl::TagContext& context);
   
 };
 
