@@ -1,14 +1,8 @@
 #include "loopWidget.hh"
 #include <owui/ui/widgetCatalog.hh>
-#include <olibs/rto/meta.hh>
 #include <olibs/base/factory.hh>
-#include <olibs/time/dateTime.hh>
-#include <olibs/rto/dynamic.hh>
 #include <olibs/rto/typesInfo.hh>
 #include <olibs/base/types.hh>
-#include <olibs/rto/typesInfo.hh>
-#include <olibs/rto/dynamic.hh>
-#include <owui/tpl/dynamicContext.hh>
 
 
 namespace MyApp {
