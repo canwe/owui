@@ -1,0 +1,12 @@
+Test of loopWidget. Behold: <br><br><br>
+
+
+<: myapp/loopWidget list="${names}":>  
+  ${i.secondName} ${i.firsName} <br>
+<:/myapp/loopWidget:> 
+
+<br><br><br>
+
+<: myapp/loopWidget list="${pairs}":>  
+  ${i.first} - ${i.second}<br>
+<:/myapp/loopWidget:> 

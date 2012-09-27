@@ -15,6 +15,7 @@ namespace MyApp {
 extern void myTest_indexPage_registerWidget();
 extern void myTest_clockWidget_registerWidget();
 extern void myTest_loopWidget_registerWidget();
+extern void myTest_looptestPage_registerWidget();
 } // MyApp
 
 
@@ -24,6 +25,7 @@ void test()
   MyApp::myTest_indexPage_registerWidget();  
   MyApp::myTest_clockWidget_registerWidget();  
   MyApp::myTest_loopWidget_registerWidget();
+  MyApp::myTest_looptestPage_registerWidget();
   
   OLIBS_DEBOUT("configure template manager...\n");
   Tpl::TemplateManager::instance()->addSourceDir("templates", "/");

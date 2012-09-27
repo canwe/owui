@@ -1,0 +1,19 @@
+
+dynamic IntPair
+{
+  Int4 first;
+  Int4 second;
+}
+
+dynamic FullName
+{
+  String firsName;
+  String secondName;
+}
+
+dynamic LoopTestPageData
+{
+  List<FullName> names;
+  List<IntPair> pairs;
+}
+

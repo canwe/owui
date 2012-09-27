@@ -9,7 +9,7 @@ namespace MyApp {
 
 const char* IndexPage::m_className = "/index";
 
-void myTest_indexPage_registerWidget()
+void myTest_looptestPage_registerWidget()
 {
   Ui::WidgetCatalog::instance()->regInfo
   (
@@ -37,30 +37,6 @@ void IndexPage::onInitRequest()
   
   data.setLastVisit(request().cookie("owui_lastVisit", false));
   
-  
-  //m_listOfNames.give(new Olibs::Rto::ListOfTypedDynamic<FullName>());
-  Olibs::Rto::ListOfTypedDynamic<FullName>* list = new Olibs::Rto::ListOfTypedDynamic<FullName>();
-  {
-    FullName* element = new FullName();
-    element->setFirsName("Juriy");
-    element->setSecondName("Gagarin");
-    list->addElement(element);
-  }
-  {
-    FullName* element = new FullName();
-    element->setFirsName("Konstantin");
-    element->setSecondName("Feoktistov");
-    list->addElement(element);
-  }  
-  {
-    FullName* element = new FullName();
-    element->setFirsName("Valentina");
-    element->setSecondName("Tereshkova");
-    list->addElement(element);
-  }    
-  data.setNames(list);
-
-
   setCookie();
 }
 

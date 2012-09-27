@@ -52,7 +52,9 @@ void LoopWidget::drawBody(Ostream& os, const Tpl::TagContext& context)
     OLIBS_ASSERT(*it != 0);
     localParamsDynamic->at<Rto::Dynamic*>(fid_variable) = *it;
     Widget::drawBody(os, localContext);
+    localParamsDynamic->at<Rto::Dynamic*>(fid_variable) = 0;
   }
+
 }
 
 
